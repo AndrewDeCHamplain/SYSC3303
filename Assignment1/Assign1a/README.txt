@@ -1,3 +1,6 @@
-- Server must have 1 argument for the port number.
-- Client must have 2 arguments, first is the host name (localhost) and the second
-is the server's port number you're sending to. 
+To run in command line:
+
+1. type: 'make -f makefile.mk'
+2. Open a second command window.
+3. Type: './server arg' , where arg is the port.
+4. Type: './client localhost arg2' , where arg2 is the port from above.
