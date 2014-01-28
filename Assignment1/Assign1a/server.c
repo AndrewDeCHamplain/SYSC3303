@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 		k=0;
 		// server is 'busy' for 10 seconds
 		printf("Sleep started\n");
-		sleep(30);
+		sleep(10);
 		printf("Done sleeping, checking Q now\n");
 
 		// get messages from queue and print them.
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
        			write(1,buf,n);
 			k++;
 		}
-		if(k == 235) printf("Warning: Queue was filled, only 235 messages were recieved\n");
+		if(k => 235) printf("Warning: Queue was filled, only 235 messages were recieved\n");
    	}
    	return 0;
 }
