@@ -64,7 +64,11 @@ void my_handler(){
 	int i;
         for(i = 0; i<500; i++){
 		bzero(buffer,256);
+<<<<<<< HEAD
 		strncpy(buffer, "Filling buffer\n", sizeof(buffer));
+=======
+		strncpy(buffer, "Filling queue\n", sizeof(buffer));
+>>>>>>> c2d63051b330b944b929fccb7bdceb747cf40284
 		n=sendto(sock,buffer,strlen(buffer),0,(const struct sockaddr *)&server,length);
 	}
 	printf("\n");
