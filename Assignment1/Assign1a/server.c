@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 		k=0;
 		// server is 'busy' for 10 seconds
 		printf("Sleep started\n");
-		sleep(10);
+		sleep(30);
 		printf("Done sleeping, checking Q now\n");
 
 		// get messages from queue and print them.
