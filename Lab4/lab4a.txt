@@ -1,0 +1,35 @@
+1. There should be 4000 entries in the log (1000 from 4 different threads)
+
+2. Entires in unsynced log (slog):
+	- Number of entries is 4000
+	  slog is 4000(4000)
+
+	- Number of entries is 3800
+	  slog is 3999(3800)
+
+	- Number of entries is 3001
+	  slog is 3006(3001)
+
+	- Number of entries is 3052
+	  slog is 3093(3052)
+
+3. Entries in synced log (log):
+
+	- Number of entries is 4000
+	  log is 4000
+
+	- Number of entries is 3800
+	  log is 3800
+
+	- Number of entries is 3001
+	  log is 3001 
+
+	- Number of entries is 3052
+	  log is 3052 
+
+4. From the observed results above, the synchronized log is not truly protected because when the 
+threads are calling 'synchronized (this)', they are only synchronizing with their own specific 
+threads. Therefore when two DIFFERENT threads are running at the same time, they are not synced 
+with each other. Only if we were to run 2 Sleepy/Yappy threads would this synchronize properly
+but since we run both Yappy and Sleepy threads, they are not synced and this results in the 
+log not being properly protected even when appearing to be.
