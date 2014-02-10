@@ -1,12 +1,12 @@
 public class Log {
 
-	int nWorkers;
+	static int nWorkers;
 	
-	public synchronized void addWorker(){
+	public synchronized static void addWorker(){
 		nWorkers++;
 	}
 	
-	public synchronized void removeWorker(){
+	public synchronized static void removeWorker(){
 		nWorkers--;
 	}
 }
