@@ -1,5 +1,4 @@
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 
 public class TestDriver {
 
@@ -7,7 +6,7 @@ public class TestDriver {
 		// TODO Auto-generated method stub
 		
 		try {
-			Executor.execute();
+			Executor.execute(Integer.parseInt(args[0]));
 		} catch (InterruptedException | ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
