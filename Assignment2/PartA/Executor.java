@@ -7,6 +7,7 @@ public class Executor {
 	
 	public static void execute(int jobs) throws InterruptedException, ExecutionException {
 		int[][] workersInfo = new int[jobs][3];
+		Object future[] = new Object[jobs];
 		
 		for(int i=0;i<jobs;i++){
 			int workTime;
@@ -23,13 +24,20 @@ public class Executor {
 			ExecutorService worker = Executors.newCachedThreadPool();
 		        
 			//Callable thread starts to execute
-			Future<Integer> future=worker.submit(new CallableThread(workTime));		
+			future[i]=worker.submit(new CallableThread(workTime));		
 			
-			//get workers actual execution times
-			workersInfo[i][2] = future.get();
+
 		}
 		for (int i = 0; i<jobs; i++){
-		    System.out.println("Worker"+workersInfo[i][0] + ", Expected: " + workersInfo[i][1] +" Actual: " +workersInfo[i][2]);
+			//get workers actual execution times
+			Object obj = future[i];
+			try { 
+				if (obj instanceof Future) {
+					Future f = (Future<Integer>)obj; 
+					workersInfo[i][2] = (int) f.get();
+					System.out.println("Worker"+workersInfo[i][0] + ", Expected: " + workersInfo[i][1] +" Actual: " +workersInfo[i][2]);
+				}
+			} catch (Exception e) { }
 		}
 	}
 	
