@@ -18,10 +18,7 @@ public class Worker {
 		}
 		
 		// pointless spin to make actual longer than expected
-		for(int i=0;i<1000000;i++){
-			int k = 1;
-			k++; k--;
-		}
+		for(int i=0;i<100000;i++)
 		
 		// worker done working
 		Log.removeWorker();
